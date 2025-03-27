@@ -1,0 +1,114 @@
+.new-thread-btn {
+  margin-bottom: 20px;
+  width: 150px;
+}
+
+.threads-container {
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.thread-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.thread-item:hover {
+  background-color: var(--primary);
+  color: white;
+}
+
+.thread-item.active {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.search-threads {
+  margin-bottom: 15px;
+}
+
+.criteria-box {
+  background-color: var(--light);
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.screening-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.screening-input input, .screening-input textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.screening-input button {
+  padding: 10px 20px;
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  align-self: flex-start;
+}
+
+/* Table Styling */
+.resume-result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.resume-result-table thead {
+  background-color: var(--primary);
+  color: white;
+}
+
+.resume-result-table th, .resume-result-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.resume-result-table tbody tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+/* Status Icons */
+.status-checked {
+  color: var(--secondary);
+}
+
+.status-cross {
+  color: #ff6b6b;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+	width: 100px;
+  }
+
+  .content {
+	margin-left: 100px;
+  }
+
+  .footer {
+	left: 100px;
+  }
+}

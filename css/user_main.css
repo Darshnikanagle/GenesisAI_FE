@@ -1,0 +1,85 @@
+body {
+  background-color: var(--light);
+  min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  background-color: var(--dark);
+  color: white;
+  padding-top: 1rem;
+  width: 250px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar.collapsed a {
+  padding-left: 0.75rem;
+}
+
+.sidebar a {
+  color: white;
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: padding 0.3s ease;
+}
+
+.sidebar a:hover, .active {
+  background-color: var(--primary);
+  color: white;
+}
+
+.sidebar-header h4 {
+  white-space: nowrap;
+}
+
+.sidebar.collapsed h4 {
+  display: none;
+}
+
+/* Ensure elements inside the sidebar collapse correctly */
+.sidebar-header, .sidebar a {
+  transition: all 0.3s ease;
+}
+
+/* Main content area */
+.content {
+  margin-left: 250px;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.content.expanded {
+  margin-left: 80px;
+}
+
+.breadcrumb {
+  --bs-breadcrumb-margin-bottom: 0rem!important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+	width: 100px;
+  }
+
+  .content {
+	margin-left: 100px;
+  }
+
+  .footer {
+	left: 100px;
+  }
+}

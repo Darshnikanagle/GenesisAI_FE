@@ -1,0 +1,110 @@
+:root {
+  --background-gradient: linear-gradient(135deg, #f0f4ff, #e1e7ff);
+}
+
+body {
+  background: var(--background-gradient);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.signup-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+}
+
+.left-section {
+  padding: 2rem;
+  border-right: 1px solid #eaeaea;
+  background: url('https://www.example.com/your-image.jpg') center center / cover no-repeat;
+  border-radius: 15px 0 0 15px;
+}
+
+.right-section {
+  padding: 2rem;
+  flex: 1;
+}
+
+.social-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-google {
+  background-color: white;
+  color: #444;
+  border: 1px solid #ddd;
+}
+
+.btn-microsoft {
+  background-color: #2f2f2f;
+  color: white;
+  border: 1px solid #2f2f2f;
+}
+
+.signup-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.btn-signup {
+  background: linear-gradient(135deg, var(--primary), #1a73e8);
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-signup:hover {
+  background: linear-gradient(135deg, #1a73e8, var(--primary));
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.divider span {
+  padding: 0 1rem;
+  color: #6c757d;
+}

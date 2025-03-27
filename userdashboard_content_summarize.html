@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4285f4">
+  <title>Content Summarization - GenesisAI</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/user_main.css">
+  <link rel="stylesheet" href="css/user_content_summary.css">
+  
+</head>
+<body>
+
+  <!-- Header -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+	  <div class="container">
+		<a class="navbar-brand" href="index.html">GenesisAI</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+		  <ul class="navbar-nav ms-auto">
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Projects</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Settings</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="#">Contact</a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link btn btn-danger text-white" href="logout.html">Logout</a>
+			</li>
+		  </ul>
+		</div>
+	  </div>
+	</nav>
+
+  <!-- Sidebar -->
+	<nav id="mainSidebar" class="sidebar">
+	  <div class="sidebar-header d-flex justify-content-between align-items-center px-3 mb-3">
+		<h4 class="text-center mb-0">Features</h4>
+		<button class="btn btn-light btn-sm" id="toggleSidebarBtn">
+		  <i class="fas fa-bars"></i>
+		</button>
+	  </div>
+	  <a href="#dashboard">Dashboard</a>
+	  <a href="userdashboard_chat.html">Chat with AI</a>
+	  <a href="userdashboard_content_summarize.html" class="active">Summarize Content</a>
+	  <a href="userdashboard_pdf.html">Ask PDF</a>
+	  <a href="userdashboard_resume_screening.html">Screen Resume</a>
+	</nav>
+
+  <!-- Main Content -->
+  <div class="content">
+	<!-- Breadcrumb -->
+	<nav aria-label="breadcrumb" class="">
+	  <ol class="breadcrumb d-flex justify-content-between w-100">
+		<li class="breadcrumb-item mb-0">Summarize content</li>
+		<button class="btn btn-primary new-thread-btn align-self-center" data-bs-toggle="modal" data-bs-target="#uploadModal">+ New Thread</button>
+	  </ol>
+	</nav>
+    <div class="container">
+      <div class="row">
+        <!-- Threads Section -->
+        <div class="col-md-4">
+          <input type="text" id="threadSearch" class="form-control search-threads" placeholder="Search Threads">
+          <div class="threads-container">
+            <div class="thread-item active" onclick="openThread(1)">
+              <span>Thread 1</span>
+            </div>
+            <div class="thread-item" onclick="openThread(2)">
+              <span>Thread 2</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-8">
+		  
+		  <button id="" class="btn btn-secondary mb-3">Download PDF</button>
+
+		  <!-- Textarea for Text Input -->
+		  <div class="summary-input mb-3" id="textInputDiv">
+			<textarea id="user_text" placeholder="Paste text here to summarize..." rows="5"></textarea>
+		  </div>
+
+		  <!-- Summary header -->
+		  <label class="form-check-label" for="threadName">Summary</label>
+
+		  <!-- Summary Box -->
+		  <div class="summary-box mb-3">
+			<div class="message ai">
+			  <p class="mr-5"><i class="fas fa-robot"></i></p>
+			  <p>Upload a document or enter text, and I will summarize it for you!</p><br/>
+			</div>
+		  </div>
+		</div>
+		
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal Structure -->
+	<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<h5 class="modal-title" id="uploadModalLabel">Provide Text or PDF</h5>
+			<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body">
+			<!-- Selection for Text or PDF -->
+			<div class="">
+			  <label class="form-check-label" for="threadName">Thread Title</label>
+			  <input type="text" id="threadName" class="form-control search-threads" placeholder="Threads Title">
+			</div>
+			
+			<div class="d-flex align-items-center mb-3">
+				<div class="form-check me-3">
+				  <input class="form-check-input" type="radio" name="uploadType" id="textOption" value="text" checked>
+				  <label class="form-check-label" for="textOption">
+					Text
+				  </label>
+				</div>
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="uploadType" id="pdfOption" value="pdf">
+				  <label class="form-check-label" for="pdfOption">
+					PDF
+				  </label>
+				</div>
+			</div>
+
+			<!-- Textarea for Text Option -->
+			<div id="textInput" class="mt-3">
+			  <textarea class="form-control" id="textContent" rows="5" placeholder="Paste text here to summarize..."></textarea>
+			</div>
+
+			<!-- File Input for PDF Option (hidden by default) -->
+			<div id="pdfInput" class="mt-3">
+			  <input type="file" class="form-control" id="pdfFileInput" accept=".pdf">
+			</div>
+			  
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Summarize</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JS and Popper.js -->
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <script>
+	// Function to toggle between Text and PDF input
+    document.querySelectorAll('input[name="inputType"]').forEach((elem) => {
+	  elem.addEventListener('change', function(event) {
+	    if (event.target.value === 'text') {
+	  	// document.getElementById('textInputDiv').style.display = 'block';
+	  	// document.getElementById('fileInputDiv').style.display = 'none';
+	    } else if (event.target.value === 'pdf') {
+	  	// document.getElementById('textInputDiv').style.display = 'none';
+	  	// document.getElementById('fileInputDiv').style.display = 'block';
+	    }
+	  });
+    });
+    
+    // Set initial visibility based on the default selected option (Text)
+    // document.getElementById('textInputDiv').style.display = 'block';
+    // document.getElementById('fileInputDiv').style.display = 'none';
+	  
+    document.getElementById('submit-summary').addEventListener('click', function () {
+      const inputText = document.getElementById('user_text').value;
+      // Handle AI summarization here...
+      alert('Summarizing the content...');
+    });
+  </script>
+</body>
+</html>

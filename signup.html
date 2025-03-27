@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4285f4">
+  <title>Sign Up - GenesisAI</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/signup.css">
+ 
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">GenesisAI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <div class="ms-3">
+          <a href="login.html" class="btn btn-outline-primary rounded-pill px-4">Try Now</a>
+		  <div class="highlight-circle-option">
+			<span class="highlight-circle"></span>
+		  </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sign Up Section -->
+  <section class="py-5">
+    <div class="signup-container">
+      <!-- Left Column - Social Sign-In -->
+      <div class="col-md-5 left-section">
+        <h5 class="text-white text-center mb-4">Sign up with your account</h5>
+        <button class="btn social-btn btn-google w-100">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+          </svg>
+          Sign up with Google
+        </button>
+        <button class="btn social-btn btn-microsoft w-100">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
+            <path d="M7.462 0H0v7.19h7.462V0zm8.074 0H8.537v7.19h6.999V0zM7.462 8.84H0V16h7.462V8.841zm8.074 0H8.537V16h6.999V8.841z"/>
+          </svg>
+          Sign up with Microsoft
+        </button>
+      </div>
+
+      <!-- Right Column - Sign-Up Form -->
+      <div class="col-md-7 right-section">
+        <h2 class="signup-header">Create Your Account</h2>
+        <form>
+          <div class="mb-3">
+            <label for="username" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter your name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter a password" required>
+            <small class="text-muted">Your password must be 8-20 characters long.</small>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter your password" required>
+          </div>
+
+          <button type="submit" class="btn btn-signup w-100">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="text-white-100 mb-0">© 2025 GenesisAI. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
+            <li class="list-inline-item">•</li>
+            <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Terms of Service</a></li>
+            <li class="list-inline-item">•</li>
+            <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
