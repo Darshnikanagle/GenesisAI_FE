@@ -85,7 +85,7 @@
         <!-- Resume Section -->
         <div class="col-md-8">
 		   <div class="mb-3">
-			<button id="downloadPDF" class="btn btn-secondary">Download Resume(s)</button>
+			<!-- <button id="downloadPDF" class="btn btn-secondary">Download Resume(s)</button> -->
 		   </div>
 			<!-- 
            <div class="mb-3">
@@ -196,6 +196,8 @@
 	  </div>
 	</div>
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <!-- Bootstrap JS and Popper.js -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
@@ -203,51 +205,19 @@
 	<!-- Include Choices.js CSS and JS -->
 	
 	<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+
+	<script src="js/config.js"></script>
+  	<script src="js/resume.js"></script>
+
+
   <script>
 	
-	document.addEventListener('DOMContentLoaded', function () {
-	  const element = document.getElementById('resumeAttributes');
-	  const choices = new Choices(element, {
-		removeItemButton: true,       // Enable removing selected items
-		duplicateItemsAllowed: false, // Prevent duplicates
-		addChoices: true,
-		shouldSort: false,            // Disable sorting to keep custom items order
-		addItems: true,
-	  });
-	  
-	  // Array of preselected values
-	  const preselectedValues = ['3 years experience', 'Java'];
-
-	  // Programmatically set preselected values
-	  preselectedValues.forEach(value => {
-		choices.setValue([value]);
-	  });
-	  
-	  // Model option
-	  const element_model = document.getElementById('resumeAttributes-model');
-	  const choices_model = new Choices(element_model, {
-		removeItemButton: true,       // Enable removing selected items
-		duplicateItemsAllowed: false, // Prevent duplicates
-		addChoices: true,
-		shouldSort: false,            // Disable sorting to keep custom items order
-		addItems: true,
-	  });
-	  
-	  
-	});
+	
   
-    document.getElementById('screen-resumes').addEventListener('click', function () {
-      const criteriaText = document.getElementById('criteria_text').value;
-      // Handle AI resume screening logic here...
-      alert('Screening resumes based on the criteria...');
-    });
+    
 
-    // Toggle Sidebar Functionality
-    document.getElementById('toggleSidebarBtn').addEventListener('click', function () {
-      const sidebar = document.getElementById('mainSidebar');
-      sidebar.classList.toggle('collapsed');
-      document.querySelector('.content').classList.toggle('expanded');
-    });
+    
   </script>
 </body>
 </html>

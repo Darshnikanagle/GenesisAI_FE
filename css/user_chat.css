@@ -5,6 +5,7 @@
   overflow-y: auto;
   border-radius: 8px;
   border: 1px solid #ddd;
+  min-height: 60vh;
   max-height: 60vh;
   display: flex;
   flex-direction: column;

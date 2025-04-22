@@ -13,6 +13,13 @@
 </head>
 <body>
 
+	<!-- Full Page Loader -->
+	<div id="pageLoader" class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-light bg-opacity-75" style="z-index: 1050; display: none;">
+		<div class="spinner-border text-primary" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+
   <!-- Header -->
 	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
 	  <div class="container">
@@ -60,7 +67,7 @@
 	<nav aria-label="breadcrumb" class="">
 	  <ol class="breadcrumb d-flex justify-content-between w-100">
 		<li class="breadcrumb-item mb-0">Ask PDF</li>
-		<button class="btn btn-primary new-thread-btn align-self-center" data-bs-toggle="modal" data-bs-target="#uploadModal">+ New Thread</button>
+		<button id="openModalButton" class="btn btn-primary new-thread-btn align-self-center" data-bs-toggle="modal" data-bs-target="#uploadModal">+ New Thread</button>
 	  </ol>
 	</nav>
     <div class="container">
@@ -70,19 +77,19 @@
         <div class="col-md-4">
           <input type="text" id="threadSearch" class="form-control search-threads" placeholder="Search Threads">
           <div class="threads-container">
-            <div class="thread-item active" onclick="openThread(1)">
+            <!-- <div class="thread-item active" onclick="openThread(1)">
               <span>Thread 1</span>
             </div>
             <div class="thread-item" onclick="openThread(2)">
               <span>Thread 2</span>
-            </div>
+            </div> -->
           </div>
         </div>
 
         <!-- PDF Upload and Chat Area -->
         <div class="col-md-8">
           <div class="mb-3">
-            <button id="downloadPDF" class="btn btn-secondary">Download PDF</button>
+            <!-- <button id="downloadPDF" class="btn btn-secondary">Download PDF</button> -->
           </div>
 
           <div class="chat-box mb-3">
@@ -123,22 +130,29 @@
 			  
 		  </div>
 		  <div class="modal-footer">
-			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-			<button type="button" class="btn btn-primary">Upload</button>
+			<button id="closeModalButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			<button id="createNewThread" type="button" class="btn btn-primary">Upload</button>
 		  </div>
 		</div>
 	  </div>
 	</div>
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <!-- Bootstrap JS and Popper.js -->
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
-  <script>
-    document.getElementById('downloadPDF').addEventListener('click', function() {
-      // Trigger download of the uploaded PDF (handle this with server-side code).
-      alert('Downloading PDF');
-    });
+  
+	<script src="js/config.js"></script>
+  	<script src="js/pdf.js"></script>
+ 
+ 
+ <script>
+    // document.getElementById('downloadPDF').addEventListener('click', function() {
+    //   // Trigger download of the uploaded PDF (handle this with server-side code).
+    //   alert('Downloading PDF');
+    // });
   </script>
 </body>
 </html>
