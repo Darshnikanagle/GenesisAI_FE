@@ -14,46 +14,7 @@
 </head>
 <body>
 
-  <!-- Header -->
-	<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
-	  <div class="container">
-		<a class="navbar-brand" href="index.html">GenesisAI</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-		  <ul class="navbar-nav ms-auto">
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Projects</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Settings</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="#">Contact</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link btn btn-danger text-white" href="logout.html">Logout</a>
-			</li>
-		  </ul>
-		</div>
-	  </div>
-	</nav>
-
-  <!-- Sidebar -->
-	<nav id="mainSidebar" class="sidebar">
-	  <div class="sidebar-header d-flex justify-content-between align-items-center px-3 mb-3">
-		<h4 class="text-center mb-0">Features</h4>
-		<button class="btn btn-light btn-sm" id="toggleSidebarBtn">
-		  <i class="fas fa-bars"></i>
-		</button>
-	  </div>
-	  <a href="#dashboard">Dashboard</a>
-	  <a href="userdashboard_chat.html">Chat with AI</a>
-	  <a href="userdashboard_content_summarize.html" class="active">Summarize Content</a>
-	  <a href="userdashboard_pdf.html">Ask PDF</a>
-	  <a href="userdashboard_resume_screening.html">Screen Resume</a>
-	</nav>
+	<div id="header-container"></div>
 
   <!-- Main Content -->
   <div class="content">
@@ -152,6 +113,8 @@
 	  </div>
 	</div>
 
+	<div id="delete-model-container"></div>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -161,6 +124,8 @@
 
 
 	<script src="js/config.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/user_main.js"></script>
   	<script src="js/summarize.js"></script>
 
   <script>

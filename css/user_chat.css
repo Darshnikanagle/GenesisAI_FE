@@ -54,40 +54,7 @@
   border-radius: 8px;
 }
 
-.new-thread-btn {
-  margin-bottom: 20px;
-  width: 150px;
-}
 
-.threads-container {
-  max-height: 50vh;
-  overflow-y: auto;
-  padding-right: 10px;
-}
-
-.thread-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  cursor: pointer;
-  background-color: #f1f1f1;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
-
-.thread-item:hover {
-  background-color: var(--primary);
-  color: white;
-}
-
-.thread-item.active {
-  background-color: var(--secondary);
-  color: white;
-}
-
-.search-threads {
-  margin-bottom: 15px;
-}
 
 .logo {
   width: 30px;

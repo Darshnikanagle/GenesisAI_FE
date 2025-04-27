@@ -1,16 +1,11 @@
 $(document).ready(function(){
     console.log("summarize js loaded...");
 
-    $('#toggleSidebarBtn').click(function() {
-        $('#mainSidebar').toggleClass('collapsed');
-        $('.content').toggleClass('expanded');
+    $(document).on("sidebarLoaded", function() {
+        $(".sb_summarize").addClass("active");
     });
 
     const type = "summarize";
-
-    function getActiveThreadId() {
-        return $('.thread-item.active').attr("data-thread-id");
-    }
 
     document.querySelectorAll('input[name="inputType"]').forEach((elem) => {
         elem.addEventListener('change', function(event) {
@@ -74,6 +69,10 @@ $(document).ready(function(){
         type: 'GET',
         contentType: 'application/json',
         data: { "type": type, "user_id": localStorage.getItem("userId") },
+        beforeSend: function () {
+            UserMainUtil.showLoader();
+            // $('#closeModalButton').click();
+        },
         success: function (response) {
           console.log('/api/thread:', response);
           
@@ -85,11 +84,8 @@ $(document).ready(function(){
 
           threads.forEach((thread, index) => {
             const isActive = index === 0 ? 'active' : '';
-            const $thread = $(`
-                <div class="thread-item ${isActive}" data-thread-id="${thread.id}" >
-                    <span>${thread.title}</span>
-                </div>
-            `);
+            const $thread = UserMainUtil.getThreadItemHtml(thread, isActive);
+            
             if(isActive) {
                 getThreadDetails(thread.id)
                 fetchAndRenderMessages(thread.id)
@@ -102,6 +98,9 @@ $(document).ready(function(){
           console.error('Failed to fetch records:', error);
           alert('Failed to fetch records')
           // Show error message to user
+        }, 
+        complete: function () {
+            UserMainUtil.hideLoader();
         }
     });
 
@@ -112,11 +111,12 @@ $(document).ready(function(){
     //     alert('Summarizing the content...');
     // });
 
+    // Create new thread
     $('#createNewThread').on('click', function (e) {
         e.preventDefault(); // prevent the form from submitting normally
 
         var formData = new FormData();
-        var file = $('#pdfFileInput')[0].files[0];
+        // var file = $('#pdfFileInput')[0].files[0];
         // formData.append("files", file);
         formData.append("title", $('#threadName').val());
         formData.append("type", type);
@@ -130,6 +130,10 @@ $(document).ready(function(){
             data: formData,
             processData: false, // prevent jQuery from processing data
             contentType: false, // prevent jQuery from setting content type
+            beforeSend: function () {
+                UserMainUtil.showLoader();
+                $('#closeModalButton').click();
+            },
             success: function (response) {
 
                 $('#closeModalButton').click();
@@ -137,13 +141,9 @@ $(document).ready(function(){
                 thread = response.thread;
 
                 $('.thread-item').removeClass('active');
-                
-                const $thread = $(`
-                    <div class="thread-item active" data-thread-id="${thread.id}">
-                        <span>${thread.title}</span>
-                    </div>
-                `);
 
+                const $thread = UserMainUtil.getThreadItemHtml(thread, "active");
+                
                 getThreadDetails(thread.id)
                 fetchAndRenderMessages(thread.id)
 
@@ -151,8 +151,13 @@ $(document).ready(function(){
 
             },
             error: function (xhr, status, error) {
+                MainUtil.showToast("Thread creation failed, please try again!", "error");
                 console.error('Failed to create new thread:', error);
-                alert('Failed to create new thread');
+                // alert('Failed to create new thread');
+                $('#openModalButton').click();
+            },
+            complete: function () {
+                UserMainUtil.hideLoader();
             }
         });
 
