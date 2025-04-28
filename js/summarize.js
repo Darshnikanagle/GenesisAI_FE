@@ -70,7 +70,7 @@ $(document).ready(function(){
         contentType: 'application/json',
         data: { "type": type, "user_id": localStorage.getItem("userId") },
         beforeSend: function () {
-            UserMainUtil.showLoader();
+            MainUtil.showLoader();
             // $('#closeModalButton').click();
         },
         success: function (response) {
@@ -100,7 +100,7 @@ $(document).ready(function(){
           // Show error message to user
         }, 
         complete: function () {
-            UserMainUtil.hideLoader();
+            MainUtil.hideLoader();
         }
     });
 
@@ -131,7 +131,7 @@ $(document).ready(function(){
             processData: false, // prevent jQuery from processing data
             contentType: false, // prevent jQuery from setting content type
             beforeSend: function () {
-                UserMainUtil.showLoader();
+                MainUtil.showLoader();
                 $('#closeModalButton').click();
             },
             success: function (response) {
@@ -157,7 +157,7 @@ $(document).ready(function(){
                 $('#openModalButton').click();
             },
             complete: function () {
-                UserMainUtil.hideLoader();
+                MainUtil.hideLoader();
             }
         });
 

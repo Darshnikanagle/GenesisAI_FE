@@ -12,6 +12,26 @@
  
 </head>
 <body>
+
+  <!-- Full Page Loader -->
+<div id="pageLoader" class="position-fixed top-0 start-0 w-100 h-100 justify-content-center align-items-center bg-light bg-opacity-75" style="z-index: 1050; display: none;">
+  <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+
+  <!-- TOAST MESSAGE -->
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+  <div id="alertToast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+      <div class="toast-body">
+          <!-- dynamic message will come here -->
+      </div>
+      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+  </div>
+</div>
+
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
     <div class="container">
@@ -73,26 +93,28 @@
         <form>
           <div class="mb-3">
             <label for="username" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter your name" required>
+            <input type="text" class="form-control" id="username" placeholder="Enter your name" required >
           </div>
 
           <div class="mb-3">
             <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email" required >
           </div>
 
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter a password" required>
+            <input type="password" class="form-control" id="password" placeholder="Enter a password" required  >
             <small class="text-muted">Your password must be 8-20 characters long.</small>
           </div>
 
           <div class="mb-3">
             <label for="confirmPassword" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter your password" required>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter your password" required  >
+            <span id="password_match_status"></span>
           </div>
 
-          <button type="submit" class="btn btn-signup w-100">Sign Up</button>
+          <button id="signup_button" type="submit" class="btn btn-signup w-100" disabled>Sign Up</button>
+          Already have an account? <a href="login.html" class="fw-medium text-decoration-none text-primary">Sign in</a>
         </form>
       </div>
     </div>
@@ -118,6 +140,11 @@
     </div>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/signup.js"></script>
 </body>
 </html>

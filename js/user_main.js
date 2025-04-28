@@ -6,14 +6,6 @@ UserMainUtil.getActiveThreadId = function() {
     return $('.thread-item.active').attr("data-thread-id");
 }
 
-UserMainUtil.showLoader = function() {
-    $('#pageLoader').addClass('d-flex');
-}
-  
-UserMainUtil.hideLoader = function() {
-  $('#pageLoader').removeClass('d-flex');
-}
-
 UserMainUtil.getThreadItemHtml = function (thread, active) {
     return `
         <div class="thread-item ${active}" data-thread-id="${thread.id}">
@@ -45,6 +37,14 @@ $(document).ready(function(){
         $('#mainSidebar').toggleClass('collapsed');
         $('.content').toggleClass('expanded');
     });
+
+    //Handle logout
+    $(document).on('click', '#logout_btn', function() {
+        localStorage.removeItem("userId");
+        window.location.href = "login.html"
+    });
+
+    
 
     // SEARCH/FILTER THREADS
     $('#threadSearch').on('input', function() {

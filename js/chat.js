@@ -44,7 +44,7 @@ $(document).ready(function(){
             type: 'GET',
             data: { thread_id: threadId },
             beforeSend: function () {
-                UserMainUtil.showLoader();
+                MainUtil.showLoader();
             },
             success: function (response) {
                 const messages = response.data;
@@ -65,7 +65,7 @@ $(document).ready(function(){
                 alert('Unable to load chat history.');
             },
             complete: function () {
-                UserMainUtil.hideLoader();
+                MainUtil.hideLoader();
             }
         });
     }
@@ -79,7 +79,7 @@ $(document).ready(function(){
         contentType: 'application/json',
         data: { "type": type, "user_id": user_id },
         beforeSend: function () {
-            UserMainUtil.showLoader();
+            MainUtil.showLoader();
             // $('#closeModalButton').click();
         },
         success: function (response) {
@@ -108,7 +108,7 @@ $(document).ready(function(){
           // Show error message to user
         },
         complete: function () {
-            UserMainUtil.hideLoader();
+            MainUtil.hideLoader();
         }
     });
 
@@ -127,7 +127,7 @@ $(document).ready(function(){
                 user_type: "user"
             }),
             beforeSend: function () {
-                UserMainUtil.showLoader();
+                MainUtil.showLoader();
             },
             success: function (response) {
                 const messages = response.data;
@@ -138,7 +138,7 @@ $(document).ready(function(){
                 alert('Unable to load chat history.');
             },
             complete: function () {
-                UserMainUtil.hideLoader();
+                MainUtil.hideLoader();
             }
         });
     }
@@ -206,7 +206,7 @@ $(document).ready(function(){
                 type: type
             },
             beforeSend: function () {
-                UserMainUtil.showLoader();
+                MainUtil.showLoader();
                 $('#closeModalButton').click();
             },
             success: function (response) {
@@ -232,7 +232,7 @@ $(document).ready(function(){
                 // alert('Failed to create new thread');
             },
             complete: function () {
-                UserMainUtil.hideLoader();
+                MainUtil.hideLoader();
             }
         });
 
