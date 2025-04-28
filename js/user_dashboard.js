@@ -16,9 +16,9 @@ $(document).ready(function(){
         url: AppConfig.BASE_URL + '/thread/count-by-type/' + localStorage.getItem("userId"), // You should expose this API
         method: 'GET',
         // contentType: 'application/json',
-        // beforeSend: function () {
-        //     MainUtil.showLoader();
-        // },
+        beforeSend: function () {
+            MainUtil.showLoader();
+        },
         success: function(response) {
             // Example response:
             // { "Resume Screening": 5, "PDF Summarizer": 3, "Content Search": 2 }
@@ -28,8 +28,6 @@ $(document).ready(function(){
             $('#resumeScreeningCount').text(response["resume"] || 0);
             $('#pdfSummarizerCount').text(response["summarize"] || 0);
             $('#contentSearchCount').text(response["pdf"] || 0);
-
-            MainUtil.hideLoader();
         },
         error: function(xhr) {
             console.error('Failed to fetch thread counts.', xhr);

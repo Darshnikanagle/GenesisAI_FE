@@ -1,12 +1,27 @@
 // Create global AppUtils object
 window.MainUtil = window.MainUtil || {};
 
+
+function hideShowLoader(action) {
+    var interval = setInterval(function() {
+        // Check if the element exists
+        if ($('#pageLoader').length) {
+            // Once found, clear the interval and execute your code
+            clearInterval(interval);
+            // Your code to execute once the element is available
+            action == 'show' ? $('#pageLoader').addClass('d-flex') : $('#pageLoader').removeClass('d-flex');
+            
+            console.log('Element found ');
+        }
+    }, 100);  // Check every 100ms
+}
+
 MainUtil.showLoader = function() {
-    $('#pageLoader').addClass('d-flex');
+    hideShowLoader('show');
 }
   
 MainUtil.hideLoader = function() {
-  $('#pageLoader').removeClass('d-flex');
+    hideShowLoader('hide');
 }
 
 
