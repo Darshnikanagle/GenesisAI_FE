@@ -18,7 +18,7 @@ $(document).ready(function(){
             // Redirect or show success message
             localStorage.setItem("email", email);
             localStorage.setItem("userId", response.user_id);
-            window.location.href = "userdashboard_chat.html";
+            window.location.href = "userdashboard.html";
           },
           error: function (xhr, status, error) {
             console.error('Login failed:', error);

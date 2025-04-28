@@ -44,8 +44,6 @@ $(document).ready(function(){
         window.location.href = "login.html"
     });
 
-    
-
     // SEARCH/FILTER THREADS
     $('#threadSearch').on('input', function() {
         const searchTerm = $(this).val().toLowerCase(); // Get the search term and convert to lowercase
