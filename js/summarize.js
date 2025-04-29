@@ -28,10 +28,11 @@ $(document).ready(function(){
                 const messages = response.data;
     
                 // Clear chat box before rendering new messages
-                $('#summary').text('');
+                $('#summary').html('');
     
                 messages.forEach(msg => {
-                    $('#summary').text(msg.message);
+                    $('#summary').html(msg.message);
+                    // console.log("content:\n", msg.message)
                 });
             },
             error: function (xhr, status, error) {
@@ -179,6 +180,28 @@ $(document).ready(function(){
 
         }
       });
+
+
+    //   Copy content
+      $(".summary-copy, .content-copy").on("click", function() {
+        var $temp = $("<textarea>");
+        $("body").append($temp);
+
+        var summaryText = '';
+
+        if($(this).hasClass("summary-copy")) {
+            summaryText = $("#summary").text();
+        } else {
+            summaryText = $("#user_text").val();
+        }
+    
+        $temp.val(summaryText).select();
+        document.execCommand("copy");
+        $temp.remove();
+    
+        // Success message
+        MainUtil.showToast("Copied Successfully!", "success");
+    });
 
 
 

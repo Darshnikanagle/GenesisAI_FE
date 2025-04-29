@@ -121,8 +121,10 @@ $(document).ready(function(){
         type: 'GET',
         contentType: 'application/json',
         data: { "type": type, "user_id": user_id },
+        beforeSend: function () {
+            MainUtil.showLoader();
+        },
         success: function (response) {
-            MainUtil.hideLoader();
             console.log('/api/thread:', response);
           
             threads = response["data"]
@@ -143,10 +145,12 @@ $(document).ready(function(){
           
         },
         error: function (xhr, status, error) {
-            MainUtil.hideLoader();
             console.error('Failed to fetch records:', error);
             alert('Failed to fetch records')
             // Show error message to user
+        },
+        complete: function () {
+            MainUtil.hideLoader();
         }
     });
 

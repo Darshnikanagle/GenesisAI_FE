@@ -113,6 +113,9 @@ $(document).ready(function(){
                 user_id: localStorage.getItem("userId"),
                 user_type: "user"
             }),
+            beforeSend: function () {
+                MainUtil.showLoader();
+            },
             success: function (response) {
                 const messages = response.data;
                 appendAiMessage(messages);
@@ -120,6 +123,9 @@ $(document).ready(function(){
             error: function (xhr, status, error) {
                 console.error('Failed to fetch messages:', error);
                 alert('Unable to load chat history.');
+            },
+            complete: function () {
+                MainUtil.hideLoader();
             }
         });
     }

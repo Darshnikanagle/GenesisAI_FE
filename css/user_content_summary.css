@@ -8,6 +8,28 @@
   max-height: 60vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+.summary-copy, .content-copy {
+    right: 35px;
+    position: sticky;
+    top: -20px;
+    display: flex;
+    justify-content: flex-end;
+    background-color: var(--light);
+    padding: 0px 0;
+    z-index: 10;
+}
+
+.summary-copy:hover, .content-copy:hover {
+  cursor: pointer;
+}
+
+.original-content-label {
+  position: absolute;
+  top: 10px;
+  z-index: 100;
 }
 
 .message {
@@ -16,7 +38,7 @@
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 12px;
-  max-width: 80%;
+  /* max-width: 80%; */
 }
 
 .message.ai {
@@ -36,6 +58,8 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  position: relative;
+  flex-direction: column;
 }
 
 .summary-input input, .summary-input textarea {
